@@ -6,6 +6,11 @@ packet_types = {}
 packet_names = {}
 in_timeout = 10
 in_filter_arp = "" 
+file
+arp_text= {
+    1 : "ARP:who-has",
+    2 : "ARP:is-at"
+} 
 
 if len(sys.argv) > 1:
     in_timeout = float(sys.argv[1])  
@@ -13,7 +18,45 @@ if len(sys.argv) > 1:
 if len(sys.argv) > 2:
     in_filter_arp = sys.argv[2] 
 
+def writeNodeToFile(pkt,file):
+    packetInfo =  time.strftime("%d/%m/%y - %H:%M:%S")
+    packetInfo += " -- "
+    if ARP in pkt:
+        packetInfo += pkt[1].hwsrc
+        packetInfo += " -- "
+        packetInfo += pkt[1].hwdst
+        packetInfo += " -- "
+        packetInfo += pkt[1].psrc
+        packetInfo += " -- "
+        packetInfo += pkt[1].pdst
+        packetInfo += " : "        
+        packetInfo += arp_text[pkt[1].op]
+    else:    
+        packetInfo += pkt.src
+        packetInfo += " -- "
+        packetInfo += pkt.dst
+        packetInfo += " -- "
+        
+        if IP in pkt:
+                packetInfo += pkt[IP].src
+                packetInfo += " -- "
+                packetInfo += pkt[IP].dst
+        else:
+                packetInfo += "no ip"
+                packetInfo += " -- "
+                packetInfo += "no ip"
+        packetInfo += " -- "
+        packetInfo += pkt[1].name
+        
+
+    packetInfo += '\n'
+    file.write(packetInfo)
+
 def monitor_callback(pkt):
+
+    
+    writeNodeToFile(pkt,file)
+
     if in_filter_arp != "":
         arp_entropy_values(pkt)
     else:         
@@ -68,8 +111,10 @@ def calculate_entropy():
 
     print "H(S) = "+str(entropy)+"\n"	
 
+file = open('workfile', 'w')
 if __name__ == '__main__':
         sniff(prn=monitor_callback, timeout = in_timeout, filter = in_filter_arp)
+file.close()
 
 calculate_entropy()
 
