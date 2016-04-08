@@ -46,9 +46,14 @@ def writeNodeToFile(pkt,file):
                 packetInfo += " -- "
                 packetInfo += pkt[IP].dst
         else:
-                packetInfo += "no ip"
-                packetInfo += " -- "
-                packetInfo += "no ip"
+		if IPv6 in pkt:
+                	packetInfo += pkt[IPv6].src
+                	packetInfo += " -- "
+                	packetInfo += pkt[IPv6].dst
+		else:
+			packetInfo += "no ip"
+                	packetInfo += " -- "
+                	packetInfo += "no ip"
         packetInfo += " -- "
         packetInfo += pkt[1].name
         
@@ -59,7 +64,7 @@ def writeNodeToFile(pkt,file):
 
 def monitor_callback(pkt):
 
-    
+    #print(pkt.show())
     writeNodeToFile(pkt,file)
 
     if in_filter_arp != "arp":
@@ -117,7 +122,7 @@ def calculate_entropy():
     type_file.write("H(S) = "+str(entropy)+"\n")
 
     for ip in ips:
-        arp_file.write(ip+"Paquetes: "+str(ips[ip])+"\n")
+        arp_file.write(ip+" Paquetes: "+str(ips[ip])+"\n")
         prob = ips[ip]/total_ips
         arp_file.write(ip+" P("+ip+") = "+str(prob)+"\n")
         info = -math.log(prob,2)
