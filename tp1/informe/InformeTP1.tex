@@ -1,0 +1,50 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=2.0cm, top=1.6cm]{geometry}
+\usepackage[utf8]{inputenc} % para poder usar tildes en archivos UTF-8
+\usepackage[spanish]{babel} % para que comandos como \today den el resultado en castellano
+\usepackage[conEntregas]{caratula}
+\usepackage{amsmath}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[section]{placeins}
+
+\usepackage{ifpdf}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+
+\begin{document}
+
+\titulo{Trabajo Pr\'actico 1}
+\subtitulo{Wiretapping}
+
+\fecha{\today}
+
+\materia{Teoría de las comunicaciones}
+
+%\grupo{Grupo ?}
+
+\integrante{Interlandi, Daniel}{---/--}{danielinterlandi@gmail.com}
+\integrante{Ladelfa, Hern\'an Nahuel}{318/04}{nahueladelfa@gmail.com}
+
+\maketitle
+\tableofcontents
+\newpage
+  
+\input{secciones/introduccion.tex}
+\newpage
+\input{secciones/resultados.tex}
+\newpage
+\input{secciones/conclusiones.tex}
+\newpage
+\input{secciones/instructivo.tex}
+\newpage
+
+
+%\newpage
+%\begin{thebibliography}{9}
+ %\end{thebibliography}
+
+
+\end{document}
+
