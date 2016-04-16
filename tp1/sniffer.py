@@ -161,6 +161,7 @@ def calculate_entropy():
             'quantity':packet_types[type],
             'probability':prob,
             'information':info,
+            'percentage':packet_types[type]*100/total_packets
         })
 
     type_file.write("H(S) = "+str(entropy)+"\n")
