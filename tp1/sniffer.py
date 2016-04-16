@@ -23,6 +23,8 @@ partial_arp_entropys = []
 plot_data = {}
 plot_data["type_data"] = []
 plot_data["ip_data"] = []
+plot_data["arp_packets"] = []
+plot_data["arp_ip_packet_quantity"] = {}
 
 if len(sys.argv) > 1:
     file_prefix = sys.argv[1] 
@@ -121,6 +123,8 @@ def arp_entropy_values(pkt):
         	ips[pdst] += 1
     	else:
         	ips[pdst] = 1
+
+        plot_data["arp_packets"].append({'src':psrc, 'dst':pdst})
  
 def add_partial_entropy():
     global total_packets
@@ -180,6 +184,7 @@ def calculate_entropy():
             'probability':prob,
             'information':info,
         })
+        plot_data["arp_ip_packet_quantity"][ip] = ips[ip]
 
     arp_file.write("H(S) = "+str(arp_entropy)+"\n")	
 
