@@ -8,8 +8,6 @@ import numpy as np
 file_prefix = ''
 dpi=500
 
-cs=plt.cm.Set1(np.arange(40)/10.)
-
 if len(sys.argv) > 1:
     file_prefix = sys.argv[1]
 else:
@@ -35,7 +33,7 @@ pie = plt.figure(1)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
 	autopct='',
-	colors=cs
+	colors=plt.cm.Set1(np.linspace(0., 1., len(pieSizes)))
 	)
 
 for pie_wedge in patches:
@@ -61,7 +59,7 @@ pie = plt.figure(5)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
 	autopct='',
-	colors=cs
+	colors=plt.cm.Set1(np.linspace(0., 1., len(pieSizes)))
 	)
 
 for pie_wedge in patches:
@@ -87,7 +85,7 @@ pie = plt.figure(6)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
 	autopct='',
-	colors=cs
+	colors=plt.cm.Set1(np.linspace(0., 1., len(pieSizes)))
 	)
 
 for pie_wedge in patches:
@@ -113,7 +111,7 @@ pie = plt.figure(1)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
 	autopct='',
-	colors=cs
+	colors=plt.cm.Set1(np.linspace(0., 1., len(pieSizes)))
 	)
 
 for pie_wedge in patches:
@@ -139,7 +137,7 @@ pie = plt.figure(7)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
 	autopct='',
-	colors=cs
+	colors=plt.cm.Set1(np.linspace(0., 1., len(pieSizes)))
 	)
 
 for pie_wedge in patches:
@@ -165,7 +163,7 @@ pie = plt.figure(8)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
 	autopct='',
-	colors=cs
+	colors=plt.cm.Set1(np.linspace(0., 1., len(pieSizes)))
 	)
 
 for pie_wedge in patches:
@@ -244,7 +242,7 @@ G.add_edges_from(edges)
 black_edges = [edge for edge in G.edges()]
 
 pos = nx.spring_layout(G)
-nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'), nodelist=nodes, node_size=sizes, alpha=0.7, linewidths=0.5, node_color='#AAAAFF')
+nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'), nodelist=nodes, node_size=sizes, linewidths=0.5, node_color='#AAAAFF')
 nx.draw_networkx_edges(G, pos, edgelist=black_edges, arrows=False, edge_color='#AAAAAA')
 nx.draw_networkx_labels(G,pos,labels,font_size=8, font_weight='bold')
 
