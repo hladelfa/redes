@@ -6,7 +6,7 @@ import networkx as nx
 import numpy as np
 
 file_prefix = ''
-dpi=500
+dpi=200
 
 if len(sys.argv) > 1:
     file_prefix = sys.argv[1]
@@ -22,7 +22,7 @@ if not os.path.exists(outputDir):
 with open(fileName) as file_data:    
 	plot_data = json.load(file_data)
 
-# Pie Start
+# Pie Quantity Start
 pieLabels = []
 pieSizes = []
 for item in plot_data["type_data"]:
@@ -38,14 +38,139 @@ patches, texts, autotexts = plt.pie(pieSizes,
 for pie_wedge in patches:
     pie_wedge.set_edgecolor('white')
 
-plt.suptitle('Tipos de paquete en la red', fontsize=20)
+plt.suptitle('Cantidad de paquetes en la red por tipo', fontsize=20)
 plt.axis('equal')
 
-plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True)
+plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True, fontsize=8)
 
-plt.savefig('output/plot/'+file_prefix+'_pie.png', dpi=dpi)
+plt.savefig('output/plot/'+file_prefix+'_pie_type.png', dpi=dpi)
 #plt.show()
-# Pie End
+# Pie Quantity End
+
+# Pie Probability Start
+pieLabels = []
+pieSizes = []
+for item in plot_data["type_data"]:
+	pieLabels.append(item["id"] + " (P("+item["id"]+")=" + "{0:.2f}".format(item["probability"]) + ")")
+	pieSizes.append(float(item["probability"]))
+
+pie = plt.figure(5)
+patches, texts, autotexts = plt.pie(pieSizes,
+	labels=None,
+	autopct=''
+	)
+
+for pie_wedge in patches:
+    pie_wedge.set_edgecolor('white')
+
+plt.suptitle('Probabilidad por tipo de paquete en la red', fontsize=20)
+plt.axis('equal')
+
+plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True, fontsize=8)
+
+plt.savefig('output/plot/'+file_prefix+'_pie_type_probability.png', dpi=dpi)
+#plt.show()
+# Pie Probability End
+
+# Pie Information Start
+pieLabels = []
+pieSizes = []
+for item in plot_data["type_data"]:
+	pieLabels.append(item["id"] + " (I("+item["id"]+")=" + "{0:.2f}".format(item["information"]) + ")")
+	pieSizes.append(float(item["information"]))
+
+pie = plt.figure(6)
+patches, texts, autotexts = plt.pie(pieSizes,
+	labels=None,
+	autopct=''
+	)
+
+for pie_wedge in patches:
+    pie_wedge.set_edgecolor('white')
+
+plt.suptitle('Informacion por tipo de paquete en la red', fontsize=20)
+plt.axis('equal')
+
+plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True, fontsize=8)
+
+plt.savefig('output/plot/'+file_prefix+'_pie_type_information.png', dpi=dpi)
+#plt.show()
+# Pie Information End
+
+# ARP Pie Start
+pieLabels = []
+pieSizes = []
+for item in plot_data["ip_data"]:
+	pieLabels.append(item["id"] + " (" + "{0:.2f}".format(item["percentage"]) + "%)")
+	pieSizes.append(int(item["quantity"]))
+
+pie = plt.figure(1)
+patches, texts, autotexts = plt.pie(pieSizes,
+	labels=None,
+	autopct=''
+	)
+
+for pie_wedge in patches:
+    pie_wedge.set_edgecolor('white')
+
+plt.suptitle('Cantidad de paquetes en la red por IP', fontsize=20)
+plt.axis('equal')
+
+plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True, fontsize=8)
+
+plt.savefig('output/plot/'+file_prefix+'_pie_arp.png', dpi=dpi)
+#plt.show()
+# ARP Pie End
+
+# ARP Pie Probability Start
+pieLabels = []
+pieSizes = []
+for item in plot_data["ip_data"]:
+	pieLabels.append(item["id"] + " (P("+item["id"]+")=" + "{0:.2f}".format(item["probability"]) + ")")
+	pieSizes.append(float(item["probability"]))
+
+pie = plt.figure(7)
+patches, texts, autotexts = plt.pie(pieSizes,
+	labels=None,
+	autopct=''
+	)
+
+for pie_wedge in patches:
+    pie_wedge.set_edgecolor('white')
+
+plt.suptitle('Probabilidad por IP en la red', fontsize=20)
+plt.axis('equal')
+
+plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True, fontsize=8)
+
+plt.savefig('output/plot/'+file_prefix+'_pie_arp_probability.png', dpi=dpi)
+#plt.show()
+# ARP Pie Probability End
+
+# ARP Pie Information Start
+pieLabels = []
+pieSizes = []
+for item in plot_data["ip_data"]:
+	pieLabels.append(item["id"] + " (I("+item["id"]+")=" + "{0:.2f}".format(item["information"]) + ")")
+	pieSizes.append(float(item["information"]))
+
+pie = plt.figure(8)
+patches, texts, autotexts = plt.pie(pieSizes,
+	labels=None,
+	autopct=''
+	)
+
+for pie_wedge in patches:
+    pie_wedge.set_edgecolor('white')
+
+plt.suptitle('Informacion por IP en la red', fontsize=20)
+plt.axis('equal')
+
+plt.legend(patches, pieLabels, loc=(-0.05, 0.05), shadow=True, fontsize=8)
+
+plt.savefig('output/plot/'+file_prefix+'_pie_arp_information.png', dpi=dpi)
+#plt.show()
+# ARP Pie Information End
 
 # Type Histogram start
 data = plot_data["partial_entropys"]
@@ -53,7 +178,7 @@ bins = 20
 hist_type = plt.figure(2)
 plt.hist(data, bins)
 
-plt.suptitle('Entropia de tipos de paquete en la red', fontsize=20)
+plt.suptitle('Histograma de entropia de tipos de paquete en la red', fontsize=20)
 plt.xlabel('Entropia')
 plt.ylabel('Frecuencia')
 
@@ -70,7 +195,7 @@ bins = 20
 hist_arp = plt.figure(3)
 plt.hist(data, bins)
 
-plt.suptitle('Entropia de direcciones IP en la red', fontsize=20)
+plt.suptitle('Histograma de entropia de direcciones IP en la red', fontsize=20)
 plt.xlabel('Entropia')
 plt.ylabel('Frecuencia')
 
@@ -97,7 +222,7 @@ for quantity in quantities:
 	nodeMin = 300
 	nodeMax = 4000
 	nodeRange = (nodeMax - nodeMin)  
-	nodeSize = (((quantity - qtyMin) * nodeRange) / qtyRange) + nodeMin
+	nodeSize = (((quantity - qtyMin) * nodeRange) / (qtyRange if qtyRange != 0 else 1)) + nodeMin
 	sizes.append(nodeSize)
 
 edges = []
@@ -114,6 +239,8 @@ pos = nx.spring_layout(G)
 nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'), nodelist=nodes, node_size=sizes, alpha=0.7, linewidths=0.5, node_color='#AAAAFF')
 nx.draw_networkx_edges(G, pos, edgelist=black_edges, arrows=False, edge_color='#AAAAAA')
 nx.draw_networkx_labels(G,pos,labels,font_size=8, font_weight='bold')
+
+plt.suptitle('Topografia de la red segun paquetes enviados', fontsize=20)
 
 plt.axis('off')
 

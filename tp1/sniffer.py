@@ -183,6 +183,7 @@ def calculate_entropy():
             'quantity':ips[ip],
             'probability':prob,
             'information':info,
+            'percentage':ips[ip]*100/total_packets
         })
         plot_data["arp_ip_packet_quantity"][ip] = ips[ip]
 
