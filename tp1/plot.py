@@ -6,7 +6,9 @@ import networkx as nx
 import numpy as np
 
 file_prefix = ''
-dpi=200
+dpi=500
+
+cs=plt.cm.Set1(np.arange(40)/10.)
 
 if len(sys.argv) > 1:
     file_prefix = sys.argv[1]
@@ -32,7 +34,8 @@ for item in plot_data["type_data"]:
 pie = plt.figure(1)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
-	autopct=''
+	autopct='',
+	colors=cs
 	)
 
 for pie_wedge in patches:
@@ -57,7 +60,8 @@ for item in plot_data["type_data"]:
 pie = plt.figure(5)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
-	autopct=''
+	autopct='',
+	colors=cs
 	)
 
 for pie_wedge in patches:
@@ -82,7 +86,8 @@ for item in plot_data["type_data"]:
 pie = plt.figure(6)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
-	autopct=''
+	autopct='',
+	colors=cs
 	)
 
 for pie_wedge in patches:
@@ -107,7 +112,8 @@ for item in plot_data["ip_data"]:
 pie = plt.figure(1)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
-	autopct=''
+	autopct='',
+	colors=cs
 	)
 
 for pie_wedge in patches:
@@ -132,7 +138,8 @@ for item in plot_data["ip_data"]:
 pie = plt.figure(7)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
-	autopct=''
+	autopct='',
+	colors=cs
 	)
 
 for pie_wedge in patches:
@@ -157,7 +164,8 @@ for item in plot_data["ip_data"]:
 pie = plt.figure(8)
 patches, texts, autotexts = plt.pie(pieSizes,
 	labels=None,
-	autopct=''
+	autopct='',
+	colors=cs
 	)
 
 for pie_wedge in patches:
@@ -176,7 +184,7 @@ plt.savefig('output/plot/'+file_prefix+'_pie_arp_information.png', dpi=dpi)
 data = plot_data["partial_entropys"]
 bins = 20
 hist_type = plt.figure(2)
-plt.hist(data, bins)
+plt.hist(data, bins, color='#8888DD')
 
 plt.suptitle('Histograma de entropia de tipos de paquete en la red', fontsize=20)
 plt.xlabel('Entropia')
@@ -193,7 +201,7 @@ data = plot_data["partial_arp_entropys"]
 bins = 20
 
 hist_arp = plt.figure(3)
-plt.hist(data, bins)
+plt.hist(data, bins, color='#8888DD')
 
 plt.suptitle('Histograma de entropia de direcciones IP en la red', fontsize=20)
 plt.xlabel('Entropia')
