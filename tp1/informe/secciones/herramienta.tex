@@ -1,0 +1,26 @@
+\section{Primera consigna: capturando tráfico}
+
+\subsection{Herramienta}
+
+Para realizar las capturas de las redes, se desarrollo un script en el lenguaje Python integrado con la herramienta Scapy.
+Este script escucha pasivamente la red capturando los paquetes que son almacenados en distintos archivos para su posterior análisis.
+
+En los archivos se guarda la información, probabilidad y entropía de las 2 fuentes elegidas. Por tipo de protocolo para los paquetes Ethernet y por IP para la captura de paquetes ARP.
+
+Un 3 archivo de formato json, contiene la información de manera organizada para poder ser leído por otro script desarrollado utilizado para generar distintos gráficos.
+
+Este segundo script genera gráficos como histogramas, de torta y grafos según paquetes ARP enviados.
+
+\subsection{Ejecución}
+
+Para la ejecución de la herramienta, debemos ejecutar los siguiente comandos desde una terminal en el sistema operativo Linux.
+
+\begin{lstlisting}[language=bash]
+  $ sudo ./sniffer.py <outputfile> <timeout> 
+\end{lstlisting}
+
+Para la ejecución del graficador:
+
+\begin{lstlisting}[language=bash]
+  $ sudo ./plot.py <outputfile> 
+\end{lstlisting}
