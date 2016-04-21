@@ -1,0 +1,21 @@
+Para realizar las capturas de las redes, se desarrolló un programa en lenguaje Python integrado con la herramienta Scapy.
+Este programa captura el tráfico de la red en modo promiscuo. La información de los paquetes leídos es almacenada en diferentes archivos para su posterior análisis.
+
+En estos archivos se almacenan datos como, la cantidad de paquetes, la información, la probabilidad y la entropía. Estos datos están relacionados con las dos fuentes elegidas: por tipo de protocolo para los paquetes Ethernet y por IP para la captura de paquetes de tipo ARP.
+
+Además, parte de estos datos también se almacenan en un archivo con formato JSON. Este archivo es utilizado por otro programa también desarrollado en Python para generar gráficos y así poder analizar la información capturada de la red. Este programa genera gráficos de tipo torta, histogramas y grafos de la red según los paquetes ARP enviados o recibidos.
+
+Estos programas se pueden ejecutar desde una terminal con sistema operativo Linux u OS X, con lenguaje Python y las librerías Scapy y Matplotlib.
+
+Para la ejecución de la herramienta de captura de paquetes de la red, se debe ejecutar el siguiente comando:
+
+sudo ./sniffer.py <file_preffix> <timeout> 
+
+Para la ejecución del programa que genera los gráficos, se debe ejecutar:
+
+sudo ./plot.py <file_preffix> 
+
+Donde:
+	file_preffix: Es el prefijo que se le agregará al nombre del archivo JSON generado por el programa sniffer.py y el prefijo con el cual plot.py lo ubicará. Además es el prefijo que plot.py le colocará a los nombres de los archivos de los gráficos generados.
+	
+	timeout: Es el tiempo durante el cual el programa se encontrará capturando tráfico de la red.
