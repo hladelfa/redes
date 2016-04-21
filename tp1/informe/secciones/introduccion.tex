@@ -14,9 +14,9 @@ donde $s_{1,i}$ es $p_i.pdst$ (dirección IP destino), con $p_i$ el i-ésimo paq
 	Usando estos modelos y los conceptos de información y entropía podemos detectar símbolos destacados en las fuentes (nodos o protocolos según la fuente). La información que otorga un símbolo $s_i$ en una fuente se define como 
 								$$ I (s_i) = log(1/P(s_i)) $$
 y nos ayuda a detectar que tan frecuente es la emisión de ese símbolo por la fuente.
-La entripía de una fuente $S = \{s_1...s_n\}$ se define como
+La entropía de una fuente $S = \{s_1...s_n\}$ se define como
 								$$\sum_{S} P(s_i)I(s_i) \forall{s_i} \in{S}$$
 este número da la información media emitida por la fuente. Indica que tan desordenada es la aparición de los símbolos.
 \\
 
-Un concepto fundmental es el del protocolo ARP. Este sirve para relacionar direcciones de nivel de red (IP) con direcciones de nivel de enlace (MAC). Cuando un equipo desea mandar un paquete a una dirección IP dada, necesita ubicar el mismo a nivel de enlace, entonces envía un ARP-request mediante broadcast requiriendo una respuesta del poseedor de la dirección IP, luego, si existe, el nodo que tenga esa IP responderá usando un paquete ARP reply a quién realizó la consulta con su dirección MAC. De esta manera, interceptando paquetes ARP se puede detectar qué nodos activos hay en una red. 		
+Un concepto fundamental es el del protocolo ARP. Este sirve para relacionar direcciones de nivel de red (IP) con direcciones de nivel de enlace (MAC). Cuando un equipo desea mandar un paquete a una dirección IP dada, necesita ubicar el mismo a nivel de enlace, entonces envía un ARP-request mediante broadcast requiriendo una respuesta del poseedor de la dirección IP, luego, si existe, el nodo que tenga esa IP responderá usando un paquete ARP reply a quién realizó la consulta con su dirección MAC. De esta manera, interceptando paquetes ARP se puede detectar qué nodos activos hay en una red. 		

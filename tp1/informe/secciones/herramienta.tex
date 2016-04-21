@@ -1,22 +1,30 @@
-\subsection{Herramienta}
+\section{Herramienta desarrollada}
 
-Para realizar las capturas de las redes, se desarrollo un script en el lenguaje Python integrado con la herramienta Scapy.
-Este script escucha pasivamente la red capturando los paquetes que son almacenados en distintos archivos para su posterior análisis.
+Para realizar las capturas de las redes, se desarrolló un programa en lenguaje Python integrado con la herramienta Scapy.
+Este programa captura el tráfico de la red en modo promiscuo. La información de los paquetes leídos es almacenada en diferentes archivos para su posterior análisis.
 
-En los archivos se guarda la información, probabilidad y entropía de las 2 fuentes elegidas. Por tipo de protocolo para los paquetes Ethernet y por IP para la captura de paquetes ARP.
+En estos archivos se almacenan datos como, la cantidad de paquetes, la información, la probabilidad y la entropía. Estos datos están relacionados con las dos fuentes elegidas: por tipo de protocolo para los paquetes Ethernet y por IP para la captura de paquetes de tipo ARP.
 
-Un 3 archivo de formato json, contiene la información de manera organizada para poder ser leído por otro script desarrollado utilizado para generar distintos gráficos.
+Además, parte de estos datos también se almacenan en un archivo con formato JSON. Este archivo es utilizado por otro programa también desarrollado en Python para generar gráficos y así poder analizar la información capturada de la red. Este programa genera gráficos de tipo torta, histogramas y grafos de la red según los paquetes ARP enviados o recibidos.
+\\
 
-Este segundo script genera gráficos como histogramas, de torta y grafos según paquetes ARP enviados.
+Estos programas se pueden ejecutar desde una terminal con sistema operativo Linux u OS X, con lenguaje Python y las librerías Scapy y Matplotlib.
 
-Para la ejecución de la herramienta, debemos ejecutar los siguiente comandos desde una terminal en el sistema operativo Linux.
-
-\begin{lstlisting}[language=bash]
-  $ sudo ./sniffer.py <outputfile> <timeout> 
-\end{lstlisting}
-
-Para la ejecución del graficador:
+Para la ejecución de la herramienta de captura de paquetes de la red, se debe ejecutar el siguiente comando:
 
 \begin{lstlisting}[language=bash]
-  $ sudo ./plot.py <outputfile> 
+  $ sudo ./sniffer.py <file_preffix> <timeout> 
 \end{lstlisting}
+
+Para la ejecución del programa que genera los gráficos, se debe ejecutar:
+
+\begin{lstlisting}[language=bash]
+  $ sudo ./plot.py <file_preffix> 
+\end{lstlisting}
+
+Donde:
+
+\begin{itemize}
+\item file\_preffix: Es el prefijo que se le agregará al nombre del archivo JSON generado por el programa sniffer.py y el prefijo con el cual plot.py lo ubicará. Además es el prefijo que plot.py le colocará a los nombres de los archivos de los gráficos generados.
+\item timeout: Es el tiempo durante el cual el programa se encontrará capturando tráfico de la red.
+\end{itemize}
