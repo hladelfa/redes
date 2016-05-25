@@ -1,0 +1,27 @@
+Introducción
+
+-Los valores atípicos se definen como los puntos de datos que son estadísticamente incompatible con el resto de los datos.
+
+-Hay que tener cuidado porque algunos datos "cuestionables" terminan siendo los valores extremos, pero otros no lo hacen.
+
+-Los datos cuestionables nunca se deben desechar sin justificación estadística adecuada.
+
+-A continuación, se discuten los métodos estadísticos que nos ayudan a saber si se debe guardar o descartar sospechosos valores atípicos.
+
+-Se discuten dos tipos de valores atípicos: 
+
+(1) los valores atípicos (Outliers) en una muestra de un sola variable (x)
+(2) los valores extremos en un conjunto de pares de datos (y vs. x).
+
+Outliers en una muestra de una sola variable
+
+Considere una muestra de n medidas de una sola variable x, es decir, x1, x2, ..., xn. Es útil para organizar los valores de x en orden creciente, de modo que los presuntos valores atípicos son fácilmente identificables (por lo general, ya sea el primero o el último punto(s) son sospechosos, ya que son los valores más bajos y más altos de x en la muestra, respectivamente).
+
+La modified Thompson tau technique es un método estadístico para decidir si mantener o descartar los valores extremos sospechosos en una muestra de una sola variable.
+
+Aquí está el procedimiento:
+
+1- La media de la muestra x y la desviación estándar S se calculan de la manera habitual.
+2- Para cada punto de datos, el valor absoluto de la desviación se calcula como ti = |di| = |xi - x(media)|
+
+

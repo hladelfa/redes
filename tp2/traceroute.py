@@ -1,5 +1,24 @@
 from scapy.all import *
 
+def calculaMedia(valores):
+
+    sum=0.0
+    for valor in valores:
+        sum += valor
+        
+    return sum / float(len(valores))
+
+def calcularStandardDeviation(valores):
+
+    media = calculaMedia(valores)
+    diferencia = 0.0
+    
+    for valor in valores:
+        diferencia += pow(valor - media, 2)
+
+    diferencia = diferencia / float(len(valores)-1)
+    return math.sqrt(diferencia)
+
 text_file = open("Output.txt", "w")
 text_file.write("Saltos  Ip             rtt \n")
 
@@ -8,6 +27,8 @@ timeout=1
 #ip = '150.244.214.237'
 ip = sys.argv[1]
 ttl = 1
+muestra_rtt = []
+ultimo_rtt_prom = 0.0
 
 while(resp != 0): #"Echo Reply"
     #Paquete: ICMP Echo Request, destino IP y TTL.    
@@ -65,6 +86,12 @@ while(resp != 0): #"Echo Reply"
 
         rtt_prom = rtt_sum / cant_exitos
         
+        deltaRTTi = rtt_prom - ultimo_rtt_prom
+        ultimo_rtt_prom = rtt_prom
+
+        muestra_rtt.append(deltaRTTi)
+
+        
         text_file.write(res_ip)
         text_file.write("   ")
         text_file.write(str(rtt_prom))
@@ -75,5 +102,15 @@ while(resp != 0): #"Echo Reply"
         text_file.write("*****\n")
         
     ttl += 1
+
+print ("-------RTTS-----------")
+muestra_rtt.sort()
+print (muestra_rtt)
+media = calculaMedia(muestra_rtt)
+print ("-------Media-----------")
+print (media)
+print ("-------Desvio Estandar-----------")
+dstandar = calcularStandardDeviation(muestra_rtt)
+print (dstandar)
 
 text_file.close()
