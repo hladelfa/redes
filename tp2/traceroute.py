@@ -1,4 +1,5 @@
 from scapy.all import *
+from thompsonValues import thompsonValues
 
 def calculaMedia(valores):
 
@@ -20,7 +21,7 @@ def calcularStandardDeviation(valores):
     return math.sqrt(diferencia)
 
 text_file = open("Output.txt", "w")
-text_file.write("Saltos  Ip             rtt \n")
+text_file.write("Saltos  Ip             rtt              DRTT\n")
 
 resp = ""
 timeout=1
@@ -86,7 +87,7 @@ while(resp != 0): #"Echo Reply"
 
         rtt_prom = rtt_sum / cant_exitos
         
-        deltaRTTi = rtt_prom - ultimo_rtt_prom
+        deltaRTTi = abs(rtt_prom - ultimo_rtt_prom)
         ultimo_rtt_prom = rtt_prom
 
         muestra_rtt.append(deltaRTTi)
@@ -95,7 +96,8 @@ while(resp != 0): #"Echo Reply"
         text_file.write(res_ip)
         text_file.write("   ")
         text_file.write(str(rtt_prom))
-        text_file.write("   ")
+        text_file.write("         ")
+        text_file.write(str(deltaRTTi))
         text_file.write("\n")
     else:
         #En otro caso, marcar como desconocido (*) 
@@ -104,6 +106,7 @@ while(resp != 0): #"Echo Reply"
     ttl += 1
 
 print ("-------RTTS-----------")
+muestra_rtt.pop(0)
 muestra_rtt.sort()
 print (muestra_rtt)
 media = calculaMedia(muestra_rtt)
@@ -112,5 +115,16 @@ print (media)
 print ("-------Desvio Estandar-----------")
 dstandar = calcularStandardDeviation(muestra_rtt)
 print (dstandar)
+print ("-------absolute value of the deviation-----------")
+adeviation = abs(max(muestra_rtt) - media)
+print (adeviation)
+print ("-------modifiedThompson-----------")
+thompsonValue = thompsonValues[len(muestra_rtt)]
+modifiedThompson = thompsonValue * dstandar
+print (modifiedThompson)
+
+if adeviation > modifiedThompson:
+        msg = "DRTT: "+str(max(muestra_rtt))+" es el enlace transatlantico"
+        print msg 
 
 text_file.close()
