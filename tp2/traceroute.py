@@ -20,6 +20,7 @@ def calcularStandardDeviation(valores):
     diferencia = diferencia / float(len(valores)-1)
     return math.sqrt(diferencia)
 
+LIMITE_TTL = 40
 text_file = open("Output.txt", "w")
 text_file.write("Saltos  Ip             rtt              DRTT\n")
 
@@ -31,7 +32,7 @@ ttl = 1
 muestra_rtt = []
 ultimo_rtt_prom = 0.0
 
-while(resp != 0): #"Echo Reply"
+while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
     #Paquete: ICMP Echo Request, destino IP y TTL.    
     packet = IP(dst=ip, ttl=ttl) / ICMP()
     res_ip = None
@@ -105,9 +106,11 @@ while(resp != 0): #"Echo Reply"
         
     ttl += 1
 
+text_file.close()
+
 print ("-------RTTS-----------")
 muestra_rtt.pop(0)
-muestra_rtt.sort()
+#muestra_rtt.sort()
 print (muestra_rtt)
 media = calculaMedia(muestra_rtt)
 print ("-------Media-----------")
@@ -127,4 +130,31 @@ if adeviation > modifiedThompson:
         msg = "DRTT: "+str(max(muestra_rtt))+" es el enlace transatlantico"
         print msg 
 
-text_file.close()
+outliers_file = open("Outliers.txt", "w")
+outliers_file.write("Media: ")
+outliers_file.write(str(media))
+outliers_file.write(" Desvio Estandar: ")
+outliers_file.write(str(dstandar))
+outliers_file.write(" modifiedThompson: ")
+outliers_file.write(str(modifiedThompson))
+outliers_file.write("\n")
+outliers_file.write("\n")
+
+
+outliers_file.write("DRTT    outliers\n")
+
+for dato in muestra_rtt:
+    
+    outliers_file.write(str(dato))
+    outliers_file.write("    ")
+    adeviation = abs(dato - media)
+    if adeviation > modifiedThompson:
+        outliers_file.write("Si")
+    else:
+        outliers_file.write("No")
+    
+    outliers_file.write("\n")
+    
+    
+outliers_file.close()
+
