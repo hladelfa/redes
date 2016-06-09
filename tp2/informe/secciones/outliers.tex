@@ -1,9 +1,12 @@
 \section{Estimación de outliers}
 
 Basándonos en la técnica de estimación propuesta por John M. Cimbala para encontrar los outliers de una muestra, agregamos a nuestro programa los cálculos necesarios para inferir saltos intercontinentales en las rutas tomadas por los paquetes hacia un host destino.
+\\\\
 Los pasos que tomamos para realizar estos cálculos fueron:
 
-Para cada TTL de los ICMP Echo Request enviados, medimos el RTT de cada salto entre cada par de nodos. Utilizamos al conjunto de los $RTT_i$ como los valores de nuestra muestra, con i=1,…,n y donde n es la cantidad de muestras obtenidas.
+\begin{enumerate}
+\item 
+Para cada TTL de los \emph{ICMP Echo Request} enviados, medimos el RTT de cada salto entre cada par de nodos. Utilizamos al conjunto de los $RTT_i$ como los valores de nuestra muestra, con $i=1,…,n$. Donde $n$ es la cantidad de muestras obtenidas.
 Por cada $RTT_i$ calculamos el valor absoluto del desvío como:
 \[
 \delta_i = |RTT_i - \overline{RTT}|
@@ -11,14 +14,19 @@ Por cada $RTT_i$ calculamos el valor absoluto del desvío como:
 
 Donde $\overline{RTT}$ es el valor de la media de la muestra calculado como el promedio de los $RTT_i$ medidos.
 
-Tomamos como referencia la tabla de valores calculados para la fórmula de Thompson modificada del artículo de Cimbala para obtener el valor  $\tau$ correspondiente a las n muestras. Con este valor obtenemos:
+\item
+Tomamos como referencia la tabla de valores calculados para la fórmula de \emph{Thompson modificada} del artículo de Cimbala para obtener el valor  $\tau$ correspondiente a las $n$ muestras. Con este valor obtuvimos:
 \[
 \tau S = \tau * S
 \]
 
-Donde S es el desvío estándar calculado como
+Donde S es el desvío estándar calculado como:
 \[
 S=\sqrt{\frac{\sum_{i=1}^{n} (RTT_i - \overline{RTT})^2}{n-1}}
 \]
 
+\item
 Luego verificamos, si $\delta_i > \tau S$, entonces asumimos que el salto con $RTT_i$ es un enlace intercontinental.
+\end{enumerate}
+
+De esta forma, mediante una técnica estadística y las herramientas que brinda el protocolo \emph{ICMP}, logramos inferir cuáles son los enlaces intercontinentales en las rutas tomadas por los paquetes.
