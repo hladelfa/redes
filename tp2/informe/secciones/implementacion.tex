@@ -4,7 +4,7 @@ Para este trabajo implementamos nuestra propia versión de la herramienta \textt
 Para evitar que el programa nunca finalize por intentar alcanzar al destino cuando este no responde, agregamos una cota al valor del TTL de 40.
 También, para cada valor de TTL realizamos hasta 10 intentos para encontrar la ruta. De esta forma podría darse la situación en que encontremos más de una ruta posible. Por lo tanto, si obtenemos al menos 3 veces consecutivas respuesta del mismo nodo, lo tomamos como parte de la ruta que retornaremos como respuesta y su RTT será el promedio de sus muestras.
 
-Además, a este programa le agregamos los cálculos necesarios para encontrar los enlaces entre nodos cuyos valores de RTT (Roundtrip Time) se encuentran considerablemente por encima del resto. Es decir, que buscaremos encontrar los outliers de las muestras. Estos cálculos los utilizaremos para inferir cuáles son los enlaces intercontinentales. Para encontrar a estos outliers utilizaremos la técnica de estimación de Cimbala propuesta por la cátedra.
+Además, a este programa le agregamos los cálculos necesarios para encontrar los enlaces entre nodos cuyos valores de RTT (Roundtrip Time) se encuentran considerablemente por encima del resto. Es decir, que buscaremos encontrar los outliers de las muestras. Estos cálculos los utilizaremos para inferir cuáles son los enlaces intercontinentales. Para encontrar a estos outliers utilizaremos la técnica de estimación de John M. Cimbala propuesta por la cátedra. Veremos más detalles sobre estos cálculos en la siguiente sección.
 
 Para utilizar nuestra versión de \texttt{traceroute} se debe ejecutar:
 
