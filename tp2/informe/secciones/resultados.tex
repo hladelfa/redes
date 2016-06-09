@@ -1,4 +1,33 @@
-\section{Resultados y análisis}
+\section{Pruebas y análisis}
+
+A continuación analizaremos los resultados de algunas de las pruebas realizadas.
+
+\subsection{Pruebas}
+Para las pruebas elegimos 3 universidades de continentes diferentes para analizar las rutas tomadas por los paquetes hacia las mismas. Las universidades que elegimos son:
+\begin{itemize}
+\item Universidad de Sydney, Australia: sydney.edu.au
+\item Universidad de Ciencia y Tecnología de Trondheim, Noruega: ntnu.edu
+\item Universidad de Shanghai, China: shu.edu.cn
+\end{itemize}
+
+Para este análisis utilizamos herramientas que, para una dirección IP dada, proveen su localización geográfica. Uno de los principales problemas que tuvimos al usar diferentes herramientas de este tipo fue que no siempre coinciden en la respuesta.  
+También, gracias a la interpretación de los RTT en cada salto, los nombres de los hosts y la ubicación de los hosts vecinos, pudimos suponer una ubicación cercana. 
+\\\\
+Fue muy frecuente, en las pruebas realizadas, que el primer gran salto se de a un nodo en ubicado en Estados Unidos, como veremos en los resultados para los casos de las Universidades de Australia y China. 
+\\\\
+La cantidad de saltos observados en las pruebas realizadas, siempre fue inferior a 30 para aquellas pruebas que terminaron correctamente. Cuando el número fue mayor a 30, no se llegó a recibir respuesta del destino.
+\\\\
+También, nos encontramos con nodos intermedios de los que no tuvimos respuesta. Esto pudo haberse dado porque estos nodos tuvieran deshabilitada la recepción y envío de mensajes ICMP.
+\\\\
+Otra característica que pudimos identificar fue que en varios casos existen hosts con una dirección IP asignada correspondiente a al rango de direcciones de otro continente. En este caso las herramientas de localización geográfica ubicaban a estos hosts en el continente correspondiente según su IP en lugar de proveer su ubicación real.
+El caso más común fue con la IP 213.140.39.118 (a35-0-grtbueba3.net.telefonicaglobalsolutions.com) Este nodo, si bien fue ubicado en Madrid por las herramientas de geolocalización, en realidad, se encuentra en Buenos Aires. Esto queda claro además por el nombre que tiene asignado este host, en el que aparecen las siglas “BA” correspondientes a Buenos Aires.
+
+\subsection{Resultados}
+
+A continuación veremos el resultado de los valores obtenidos en cada una de las pruebas. Para cada salto vemos el RTT y la diferencia con el RTT del salto anterior representado como DRTT. También podemos ver a qué país corresponde cada dirección IP según la información obtenida por las herramientas de localización geográfica. Y, en la columna “Outlier”, se muestra el resultado obtenido de la estimación Modified Thompson indicando en cada caso si el salto representa un enlace intercontinental.
+En todos los casos pudimos comprobar que la estimación de outliers fue precisa en comparación con los RTT de cada salto y las localizaciones de los hosts observadas.
+
+\subsubsection{Australia}
 
 Site: sydney.edu.au
 
@@ -40,6 +69,8 @@ Modified Thompson: 64.2373184166
     \end{tabular}
 \end{center}
 
+\subsubsection{Noruega}
+
 Site: ntnu.edu
 
 País: Noruega
@@ -66,6 +97,8 @@ Modified Thompson: 141.847291614
     8      & 149.3.183.45   & 316.6  & 2.8    & No      & Noruega     \\ \hline
     \end{tabular}
 \end{center}
+
+\subsubsection{China}
 
 Site: shu.edu.cn
 
