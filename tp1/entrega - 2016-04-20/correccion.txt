@@ -1,0 +1,19 @@
+Hola chicos 
+Yo le corregí su TP y hay algunas cosas que me gustaría que revisen.
+
+El formato en general del TP esta muy bien. LA introducción teórica y la presentación de la herramientas utilizadas son correctas.
+También esta bien los caso de análisis que eligieron.
+Lo que esta un poco flojo es el análisis de los datos obtenidos y tampoco entendí los gráficos que hicieron en la sección de Análisis de entropía. Ademas la comparación entre entrompas de una fuente y la otra no tiene mucho sentido.
+
+Entonces, como es difícil que nos veamos esta semana porque el miércoles es feriado, trato de resumirles.
+La presentaciones los datos es correcta.  
+La definición de símbolo  distinguido de usan es un poco ambigua. Lo que Uds deben plantear es:  Dada la entupía de la fuente, un cíbolo distinguido es aquel que su información DISTA mucho de la entropia. Luego analizar para los símbolos distinguidos como se interpreta su información y finalmente tratar de deducir del análisis anterior algún comportamiento o característica de  la red (trafico, overhead, router, etc).
+
+O no es un análisis util, o  no entendi las secciones de análisis de la entropía. Si creen que son correctos y explican aspectos del análisis, les pido me me expliquen por mail que es lo que quisieron hacer.
+
+Corrijan  esto que les acabo de pedir y vuelvan a mandarme el TP Corregido en cuanto lo tengan.
+
+CUALQUIER DUDA me preguntan por mail o vemos si podemos cruzarnos algún día en la facu.
+
+Saludos
+MAX
