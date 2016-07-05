@@ -1,0 +1,26 @@
+Hola, 
+Primero les pido disculpas en la demora en corregir su TP2, trato  de nunca demorar una entrega de notas por lo importante que esto es para organizar sus fechar y horarios. Lamento mucho que esto haya ocurrido y les pido disculpas nuevamente.
+
+Les voy a pedir que reentreguen en TP haciendo las siguientes correcciones. Claro que  como les estoy devolviendo la nota tarde, si necesitaran entender el plazo de reentrega para, nos los consultan y no va a haber ningún problema en extenderlo.
+
+La siguiente decision que tomaron en me parece poco acertada. cito textual del TP
+
+" Tambien, para cada valor de TTL realizamos hasta 10 intentos para encontrar la ruta. De
+esta forma podra darse la situacion en que encontremos mas de una ruta posible. Por lo tanto, si obtenemos al menos
+3 veces consecutivas respuesta del mismo nodo, lo tomamos como parte de la ruta que retornaremos como respuesta
+y su RTT (Roundtrip Time) sera el promedio de sus muestras."
+
+ Esto es un poco feo porque están sesgando la muestra y de alguna manera acomodan los datos para que den bien. el RTT medio lo deberían calcular con TODOS los valores obtenidos.  Porque sino, no están representando lo que ocurre en la red, UDs deben  analizar TODOS  los datos y extraer conclusiones (así los datos sean feos, no esperados o confusos, en este caso  el análisis será mas interesantes)
+A mi me parece que 10 muestras por TTL es un poco poco. Pienses que su método de análisis es estadístico y en consecuencia la cantidad de muestras es relevante para el experimento.
+
+En cuanto a las presentación del análisis,  Uds realizaron un análisis y explicaron esto en un bloque de texto y luego pusieron a continuación las tablas de los resultados una seguida de la otra.
+LA idea es que analicen cada experimento, y en cada experimento explique los datos  y las particularidades  que encuentre y si hubo cosas en comun lo adviertan en las conclusiones. 
+
+Este ultimo punto quizás lo vean mas claro cuando rehagan los experimentos sin sesgar los datos.  Porque como lo tiene hecho ahora, todas las redes se comportaron mas o menos igual, porque el recorte en los datos les quito sus particularidades.
+
+Cualquier duda que tengan sobre la corrección, o me consultan en clase o me mandan un mail.
+
+Nuevamente les recuerdo que, como yo me demore en la corrección de su TP, si necesitaran mas tiempo para restregarlo, nos lo aclaran  y lo van a tener.
+
+Saludos
+MAX
