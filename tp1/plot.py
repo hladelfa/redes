@@ -6,7 +6,7 @@ import networkx as nx
 import numpy as np
 
 file_prefix = ''
-dpi=500
+dpi=300
 
 if len(sys.argv) > 1:
     file_prefix = sys.argv[1]
@@ -210,6 +210,70 @@ plt.grid()
 plt.savefig('output/plot/'+file_prefix+'_hist_arp.png', dpi=dpi)
 #plt.show()
 # ARP Histogram End
+
+# Type information bars start
+plt.figure(9)
+
+types = []
+index = []
+informations = []
+num = 0
+for item in plot_data["type_data"]:
+	num+=1
+	types.append(item["id"])
+	index.append(num)
+	informations.append(item["information"])
+
+plt.bar(index, informations, align='center', color='#8888DD')
+plt.xticks(index, types)
+
+plt.suptitle('Informacion de tipos de paquete en la red', fontsize=20)
+plt.xlabel('Tipo')
+plt.ylabel('Informacion')
+
+entropy = plot_data["partial_entropys"][-1]
+plt.plot([0,num+1],[entropy, entropy], c="#FF2222", linewidth=2, label="Entropia")
+
+plt.legend(fontsize=10)
+
+plt.grid()
+
+plt.savefig('output/plot/'+file_prefix+'_information_bars_type.png', dpi=dpi)
+#plt.show()
+# Type information bars End
+
+# ARP information bars start
+plt.figure(10)
+
+ips = []
+index = []
+informations = []
+num = 0
+for item in plot_data["ip_data"]:
+	num+=1
+	ips.append(item["id"])
+	index.append(num)
+	informations.append(item["information"])
+
+plt.bar(index, informations, align='center', color='#8888DD')
+plt.xticks(index, ips, rotation='vertical', fontsize=7)
+
+plt.suptitle('Informacion de IPs en la red', fontsize=20)
+plt.xlabel('IP')
+plt.ylabel('Informacion')
+
+entropy = plot_data["partial_arp_entropys"][-1]
+plt.plot([0,num+1],[entropy, entropy], c="#FF2222", linewidth=2, label="Entropia")
+
+plt.legend(fontsize=10)
+
+plt.grid()
+
+plt.gcf().subplots_adjust(bottom=0.2)
+
+plt.savefig('output/plot/'+file_prefix+'_information_bars_arp.png', dpi=dpi)
+#plt.show()
+# ARP information bars End
 
 # Network Start
 nodes = []
