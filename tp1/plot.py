@@ -310,7 +310,7 @@ nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'), nodelist=nodes, node_si
 nx.draw_networkx_edges(G, pos, edgelist=black_edges, arrows=False, edge_color='#AAAAAA')
 nx.draw_networkx_labels(G,pos,labels,font_size=8, font_weight='bold')
 
-plt.suptitle('Topografia de la red segun paquetes ARP enviados', fontsize=20)
+plt.suptitle('Topologia de la red segun paquetes ARP enviados', fontsize=20)
 
 plt.axis('off')
 

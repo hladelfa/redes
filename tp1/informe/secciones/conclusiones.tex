@@ -1,7 +1,13 @@
 \section{Conclusiones}
-En este experimento pudimos apreciar una aplicación de la teoría de la información para poder descubrir partes de una red cuyo impacto es más destacado en la misma, en particular, nodos y protocolos con mayor importancia.
-\\
-En la primera parte del trabajo práctico, al buscar protocolos distinguidos, se descubrió que, en general, el protocolo más frecuente es el IPv4, lo cual es razonable. Además se notó que en algunas redes el protocolo IPv6, también, es bastante frecuente y que el protocolo ARP siempre se encontró presente en ellas. Esto último es previsible, por el funcionamiento de las redes IP en LAN.
-\\
-En la segunda parte del trabajo se investigó la existencia de nodos distinguidos (o símbolos distinguidos en el contexto de la fuente $S_1$). Se detectó que en cada una de las redes el router fue uno de los nodos distinguidos. También se observó que en las redes no controladas la entropía de la fuente $S_1$ es menor que en aquellas que sí son controladas, esto se puede deber a que la entropía mide la previsibilidad de la fuente, por lo que en redes no controladas esta será mayor.
+En estos experimentos pudimos apreciar una aplicación concreta de la teoría de la información que nos permitió modelar y analizar diferentes fuentes de información.
+\\\\
+En la primera parte del trabajo práctico, al buscar protocolos distinguidos se descubrió que, en general, el protocolo más frecuente es el IPv4, lo cual es razonable. Además se notó que en algunas redes el protocolo IPv6, también, es bastante frecuente y que el protocolo ARP siempre se encontró presente en ellas. Esto último es previsible, por el funcionamiento de las redes IP en LAN.
+\\\\
+En el análisis de protocolos pudimos encontrar muchas similitudes entre las distintas redes. En general la entropía de esta fuente presentó un valor bajo y además el protocolo IPv4, que es el que mayor tráfico presenta, aportó valores de información inferiores. Esto demuestra una fuente predecible en la que se espera que la mayoría de los paquetes pertenezcan al protocolo IPv4.
+\\\\
+En la segunda parte del trabajo se investigó la existencia de nodos distinguidos (o símbolos distinguidos en el contexto de la fuente $S_1$).
+\\\\
+Se pudo observar que las redes analizadas el router fue uno de los nodos distinguidos.
+\\\\
+También se observó que para las fuentes que modelan los diferentes nodos de la red, el valor de la entropía fue más elevado que la entropía de las fuentes que modelan los tipos de protocolos. Esto nos parece razonable debido a la impredecibilidad de la incidencia de los nodos en la red en comparación con la de los diferentes tipos de protocolos.
 

@@ -1,86 +1,37 @@
 \subsection{Red de Centro Comercial}
 
 En este caso la captura se llevó a cabo en una red no controlada, en el shopping Galerías Pacífico, durante aproximadamente 10 minutos.
-Debido a que la red no está controlada por nosotros, no conocemos la naturaleza de los equipos que intercambian infomración en la misma, pero conjeturamos que la mayoría son teléfonos celulares.
-
-\FloatBarrier
-
-\subsubsection{Paquetes capturados e información}
-
-Los resultados del experimento para determinar protocolos importantes para la fuente $S$ se resumen en los siguientes gráficos.
+Debido a que la red no está controlada por nosotros, no conocemos detalles de la naturaleza de los equipos que intercambian información en la misma. Pero conjeturamos que la mayoría podrían ser teléfonos celulares.
+\\\\
+Vemos a continuación el gráfico que muestra la topología según la captura.
 
 \begin{figure}[ht!]
   \centering
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{graficos/galerias_pacifico3_10min_pie_type.png}
-    \caption{Fuente $S$}
-    \label{fig:galerias_pacifico3_10min_pie_type}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{graficos/galerias_pacifico3_10min_pie_type_information.png}
-    \caption{Fuente $S$}
-    \label{fig:galerias_pacifico3_10min_pie_type_information}
-  \end{minipage}
-\end{figure}
-
-En los gráficos Figura ~\ref{fig:galerias_pacifico3_10min_pie_type}. y Figura ~\ref{fig:galerias_pacifico3_10min_pie_type_information}. se puede observar que el protocolo IPV4 es el más frecuente y, por ende, el que brinda menos información.
-\\
-\\
-\FloatBarrier
-
-Mostramos ahora la frecuencia e información de cada IP en la red para la fuente $S_1$.
-
-\begin{figure}[ht!]
-  \centering
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{graficos/galerias_pacifico3_10min_pie_arp.png}
-    \caption{Fuente $S_1$}
-    \label{fig:galerias_pacifico3_10min_pie_arp}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{graficos/galerias_pacifico3_10min_pie_arp_information.png}
-    \caption{Fuente $S_1$}
-    \label{fig:galerias_pacifico3_10min_pie_arp_information}
-  \end{minipage}
-\end{figure}
-
-En los gráficos Figura ~\ref{fig:galerias_pacifico3_10min_pie_arp}. y Figura ~\ref{fig:galerias_pacifico3_10min_pie_arp_information}.
-podemos observar que las direcciones IP distinguidas son 192.104.200.5, 190.104.200.1 y 190.104.200.188. 
-
-\FloatBarrier
-
-\subsubsection{Nodos de la red}
-
-En la Figura ~\ref{fig:galerias_pacifico3_10min_network} se muestra un grafo con los diferentes nodos en la red identificados por su dirección IP.
-
-\begin{figure}[ht!]
-  \centering
-   \includegraphics[width=0.7\textwidth]{graficos/galerias_pacifico3_10min_network.png}
+   \includegraphics[width=0.7\textwidth]{graficos/shopping_network.png}
   \caption{}
-  \label{fig:galerias_pacifico3_10min_network}
+  \label{fig:shopping_network}
 \end{figure}
 
-\FloatBarrier
-
-\subsubsection{Análisis de la de entropía}
-
-A continuación analizaremos histogramas con cortes en los valores de entropía, tanto para las IP de la red como para los tipos de protocolo.
+En este diagrama podemos observar que la mayoría de los nodos se encuentran sin un eje que los conecte. Esto se debe a que durante la captura, en general los paquetes ARP tuvieron la misma dirección IP como origen y destino. Según lo que investigamos sobre este comportamiento se debe a una práctica llamada ARP gratuitos. Los paquetes ARP gratuitos contienen en el destino la misma dirección IP que la del origen quien lo envía y la MAC destino es una dirección broadcast. La utilidad de este tipo de paquetes es la de poder detectar conflictos de direcciones IP duplicadas. También se utilizan para informar a los switches, o máquinas,de las MAC de sus interfaces para que actualicen sus tablas sin necesidad de peticiones directas.
+\\\\
+Observamos a continuación el gráfico de cantidad de información de cada nodo con respecto a la entropía.
 
 \begin{figure}[ht!]
   \centering
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{graficos/galerias_pacifico3_10min_hist_arp.png}
-    \caption{Fuente $S$}
-    \label{fig:galerias_pacifico3_10min_hist_arp}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{graficos/galerias_pacifico3_10min_hist_type.png}
-    \caption{Fuente $S_1$}
-    \label{fig:red_domestica_hist_arp}
-  \end{minipage}
+   \includegraphics[width=0.7\textwidth]{graficos/shopping_information_bars_arp.png}
+  \caption{}
+  \label{fig:shopping_information_bars_arp}
 \end{figure}
 
-Al igual que en las otras redes, podemos ver que la entropía en la fuente $S$ es menor que en la fuente $S_1$, debido a que en la primera, los símbolos son más predecibles.
+Como podemos observar, hay dos nodos que presentan una cantidad de información que se encuentra por debajo de la entropía. Basándonos en los experimentos analizados anteriormente, inferimos que alguno de estos dos nodos posiblemente sea el router.
+\\\\
+Vemos el gráfico de la cantidad de información de cada protocolo en comparación con la entropía.
+
+\begin{figure}[ht!]
+  \centering
+   \includegraphics[width=0.7\textwidth]{graficos/shopping_information_bars_type.png}
+  \caption{}
+  \label{fig:shopping_information_bars_type}
+\end{figure}
+
+En este caso los resultados son similares a los obtenidos en los experimentos anteriores. Donde el protocolo IP presenta una cantidad de información por debajo del valor de la entropía. El resto de los protocolos, LLC, IPv6 y ARP, aparecieron con menor frecuencia, aportando mayor cantidad de información.
