@@ -4,6 +4,6 @@
 \contentsline {section}{\numberline {3}Herramienta desarrollada}{3}{section.3}
 \contentsline {section}{\numberline {4}Resultados y an\IeC {\'a}lisis}{4}{section.4}
 \contentsline {subsection}{\numberline {4.1}Red Dom\IeC {\'e}stica}{4}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Red Laboral}{6}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Red de Centro Comercial}{7}{subsection.4.3}
-\contentsline {section}{\numberline {5}Conclusiones}{10}{section.5}
+\contentsline {subsection}{\numberline {4.2}Red Laboral}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Red de Centro Comercial}{10}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusiones}{12}{section.5}

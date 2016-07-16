@@ -4,6 +4,8 @@ Esta captura se realizó en la red laboral de uno de los integrantes del grupo. 
 \\\\
 Vemos a continuación el gráfico que muestra la topología de la red según el intercambio de paquetes ARP que hubo en la captura.
 
+\FloatBarrier
+
 \begin{figure}[ht!]
   \centering
    \includegraphics[width=0.7\textwidth]{graficos/laboral_network.png}
@@ -11,9 +13,13 @@ Vemos a continuación el gráfico que muestra la topología de la red según el 
   \label{fig:laboral_network}
 \end{figure}
 
+\FloatBarrier
+
 En el centro del gráfico y de mayor tamaño podemos observar el nodo que representa al router con dirección IP 192.168.26.1. Por destacarse frente a los demás nodos creemos que este podría ser el nodo distinguido.
 \\\\
 Vemos ahora el gráfico que muestra la cantidad de información de cada nodo con respecto a la entropía.
+
+\FloatBarrier
 
 \begin{figure}[ht!]
   \centering
@@ -22,9 +28,13 @@ Vemos ahora el gráfico que muestra la cantidad de información de cada nodo con
   \label{fig:laboral_information_bars_arp}
 \end{figure}
 
+\FloatBarrier
+
 Como podemos comprobar en este gráfico, la información que presenta el nodo correspondiente al router se encuentra muy por debajo de la entropía de la fuente. Por lo tanto concluímos que este es un nodo distinguido. Por otro lado vemos a un par de nodos que aportan mucha información, o sea que presentan una baja probabilidad. Posiblemente estos dos nodos sean equipos que tuvieron poca actividad durante la captura de paquetes, y participaron en pocas búsquedas ARP.
 \\\\
 Veremos a continuación el gráfico que muestra la cantidad de información de cada protocolo en comparación con la entropía.
+
+\FloatBarrier
 
 \begin{figure}[ht!]
   \centering
@@ -32,6 +42,8 @@ Veremos a continuación el gráfico que muestra la cantidad de información de c
   \caption{}
   \label{fig:laboral_information_bars_type}
 \end{figure}
+
+\FloatBarrier
 
 Se pueden observar dos símbolos distinguidos. El protocolo IPv4, cuya información se presenta por debajo de la entropía. Es el protocolo que presenta más frecuencia y por este motivo aporta muy poca información.
 Y el protocolo LLC que con muy poca frecuencia nos da mucha información.

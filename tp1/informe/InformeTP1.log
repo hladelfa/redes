@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.10)  15 JUL 2016 22:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.10)  15 JUL 2016 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -981,10 +981,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--8
 File: graficos/domestica_network.png Graphic file (type png)
 
 <use graficos/domestica_network.png>
-Package pdftex.def Info: graficos/domestica_network.png used on input line 11.
+Package pdftex.def Info: graficos/domestica_network.png used on input line 13.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--19
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
  []
 
@@ -995,45 +995,45 @@ File: graficos/domestica_network_information_bars_arp.png Graphic file (type pn
 g)
  <use graficos/domestica_network_information_bars_arp.png>
 Package pdftex.def Info: graficos/domestica_network_information_bars_arp.png us
-ed on input line 22.
+ed on input line 28.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--30
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 33.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 33.
+ [4 <./graficos/domestica_network.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 35--38
 
  []
 
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 30.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 30.
-[4 <./graficos/domestica_network.png>]
+
 <graficos/domestica_network_information_bars_type.png, id=88, 578.16pt x 433.62
 pt>
 File: graficos/domestica_network_information_bars_type.png Graphic file (type p
 ng)
  <use graficos/domestica_network_information_bars_type.png>
 Package pdftex.def Info: graficos/domestica_network_information_bars_type.png u
-sed on input line 33.
+sed on input line 43.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
 )
 (./secciones/resultados2.tex
@@ -1075,40 +1075,89 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 1.
+ [6]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
 
-<graficos/laboral_network.png, id=97, 578.16pt x 433.62pt>
+<graficos/laboral_network.png, id=102, 578.16pt x 433.62pt>
 File: graficos/laboral_network.png Graphic file (type png)
 
 <use graficos/laboral_network.png>
-Package pdftex.def Info: graficos/laboral_network.png used on input line 9.
+Package pdftex.def Info: graficos/laboral_network.png used on input line 11.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
+Underfull \hbox (badness 10000) in paragraph at lines 18--21
 
  []
 
-<graficos/laboral_information_bars_arp.png, id=98, 578.16pt x 433.62pt>
+<graficos/laboral_information_bars_arp.png, id=103, 578.16pt x 433.62pt>
 File: graficos/laboral_information_bars_arp.png Graphic file (type png)
 
 <use graficos/laboral_information_bars_arp.png>
 Package pdftex.def Info: graficos/laboral_information_bars_arp.png used on inpu
-t line 20.
+t line 26.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--28
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 31.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 31.
+ [7 <./graficos/laboral_network.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
 
  []
 
-<graficos/laboral_information_bars_type.png, id=99, 578.16pt x 433.62pt>
+<graficos/laboral_information_bars_type.png, id=110, 578.16pt x 433.62pt>
 File: graficos/laboral_information_bars_type.png Graphic file (type png)
 
 <use graficos/laboral_information_bars_type.png>
 Package pdftex.def Info: graficos/laboral_information_bars_type.png used on inp
-ut line 31.
+ut line 41.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
 ) (./secciones/resultados3.tex
 Package babel Info: Redefining spanish shorthand <<
@@ -1136,7 +1185,33 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
 
-[6 <./graficos/laboral_network.png>]
+[8 <./graficos/laboral_information_bars_arp.png> <./graficos/laboral_informatio
+n_bars_type.png>]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 1.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 1.
+ [9]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
@@ -1154,88 +1229,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
  []
 
-<graficos/shopping_network.png, id=107, 578.16pt x 433.62pt>
+<graficos/shopping_network.png, id=123, 578.16pt x 433.62pt>
 File: graficos/shopping_network.png Graphic file (type png)
 
 <use graficos/shopping_network.png>
-Package pdftex.def Info: graficos/shopping_network.png used on input line 10.
+Package pdftex.def Info: graficos/shopping_network.png used on input line 12.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--18
+Underfull \hbox (badness 10000) in paragraph at lines 19--22
 
  []
 
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 18.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 18.
-[7 <./graficos/laboral_information_bars_arp.png> <./graficos/laboral_informatio
-n_bars_type.png>]
-<graficos/shopping_information_bars_arp.png, id=116, 578.16pt x 433.62pt>
+<graficos/shopping_information_bars_arp.png, id=124, 578.16pt x 433.62pt>
 File: graficos/shopping_information_bars_arp.png Graphic file (type png)
 
 <use graficos/shopping_information_bars_arp.png>
 Package pdftex.def Info: graficos/shopping_information_bars_arp.png used on inp
-ut line 21.
+ut line 27.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--29
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 32.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 32.
+ [10 <./graficos/shopping_network.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 34--37
 
  []
 
-<graficos/shopping_information_bars_type.png, id=117, 578.16pt x 433.62pt>
+<graficos/shopping_information_bars_type.png, id=131, 578.16pt x 433.62pt>
 File: graficos/shopping_information_bars_type.png Graphic file (type png)
 
 <use graficos/shopping_information_bars_type.png>
 Package pdftex.def Info: graficos/shopping_information_bars_type.png used on in
-put line 32.
+put line 42.
 (pdftex.def)             Requested size: 358.50317pt x 268.8747pt.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 35.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 35.
- [8 <./graficos/shopping_network.png> <./graficos/shopping_information_bars_arp
-.png>])
+)
 (./secciones/conclusiones.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
@@ -1261,7 +1309,8 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
- [9 <./graficos/shopping_information_bars_type.png>]
+ [11 <./graficos/shopping_information_bars_arp.png> <./graficos/shopping_inform
+ation_bars_type.png>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
@@ -1324,7 +1373,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 48.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 48.
- [10]
+ [12]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 56.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
  (./InformeTP1.aux
@@ -1335,12 +1384,16 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 56.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 56.
 Package rerunfilecheck Info: File `InformeTP1.out' has not changed.
 (rerunfilecheck)             Checksum: D97AB12ADBB647136AD3E8B2C95408BA;457.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 10321 strings out of 493089
- 151019 string characters out of 6134842
- 266348 words of memory out of 5000000
+ 10323 strings out of 493089
+ 151033 string characters out of 6134842
+ 265226 words of memory out of 5000000
  13620 multiletter control sequences out of 15000+600000
  6686 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1357,10 +1410,10 @@ cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
 texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local
 /texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
 texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on InformeTP1.pdf (11 pages, 2012719 bytes).
+Output written on InformeTP1.pdf (13 pages, 2013034 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
+ 194 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  120 words of extra memory for PDF output out of 10000 (max. 10000000)
 
