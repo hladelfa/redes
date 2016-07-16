@@ -20,6 +20,7 @@ def calcularStandardDeviation(valores):
     diferencia = diferencia / float(len(valores)-1)
     return math.sqrt(diferencia)
 
+QUANTITY_ATTEMPTS = 30
 LIMITE_TTL = 40
 text_file = open("Output.txt", "w")
 text_file.write("Saltos  Ip             rtt              DRTT\n")
@@ -36,11 +37,12 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
     #Paquete: ICMP Echo Request, destino IP y TTL.    
     packet = IP(dst=ip, ttl=ttl) / ICMP()
     res_ip = None
+    res_ip_list = []
     cant_timeouts = 0
     intentos = 1
     rtt_sum = 0.0
     cant_exitos = 0
-    while intentos <= 10:    
+    while intentos <= QUANTITY_ATTEMPTS:    
 
         rtt = int(round(time.time() * 1000))
         res = sr1(packet, timeout=timeout)
@@ -52,17 +54,20 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
                  resp = 0
             
             if res_ip == None:
-               res_ip = res[IP].src  
+               res_ip = res[IP].src
+               res_ip_list.append(res_ip)   
             elif res_ip != res[IP].src: # Cambio la IP
-                if intentos <= 3: # no tenemos suficientes RTTs para promediar
-                   res_ip = res[IP].src
-                   intentos = 2
-                   rtt_sum = rtt
-                   cant_exitos = 1
-                   rtts = [rtt]
-                   continue
-                else: # Seguimos al proximo ttl
-                   break  
+                 res_ip = res[IP].src
+                 res_ip_list.append(res_ip)
+            #    if intentos <= 3: # no tenemos suficientes RTTs para promediar
+            #       res_ip = res[IP].src
+            #       intentos = 2
+            #       rtt_sum = rtt
+            #       cant_exitos = 1
+            #       rtts = [rtt]
+            #       continue
+            #    else: # Seguimos al proximo ttl
+            #       break  
             rtt_sum += rtt
             cant_exitos += 1  
         
@@ -94,7 +99,8 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
         muestra_rtt.append(deltaRTTi)
 
         
-        text_file.write(res_ip)
+        #text_file.write(res_ip)
+        text_file.write(str(res_ip_list))        
         text_file.write("   ")
         text_file.write(str(rtt_prom))
         text_file.write("         ")
