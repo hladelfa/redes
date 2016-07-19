@@ -71,12 +71,12 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
             rtt_sum += rtt
             cant_exitos += 1  
         
-        else:
-            cant_timeouts += 1
+        #else:
+        #    cant_timeouts += 1
 
-            if cant_timeouts >= 3:
-                timeout += 1
-                break
+        #    if cant_timeouts >= 3:
+        #        timeout += 1
+        #        break
 
         intentos += 1
     
