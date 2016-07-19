@@ -24,3 +24,24 @@ Nuevamente les recuerdo que, como yo me demore en la corrección de su TP, si ne
 
 Saludos
 MAX
+
+——
+
+Hola Maximiliano,
+
+Una duda sobre la corrección del TP2. 
+Según lo que entiendo, nos esta diciendo que por cada TTL tendríamos que mostrar un valor promedio total, aunque estos correspondan a distintos nodos ?
+
+Saludos.
+
+——
+
+No sé si termino de entender tu pregunta. La idea es que cada ttl en principio representa un salto, y por cada salto debes promediar un rtt.  Y mediante el análisis de los rtt debes identificar un salto transoceánico. 
+
+De la muestra de datos, te mencione que no descartes datos analízalos todos. Si crees que en necesario para lo que te pedimos que separes en más casos o no, podes mencionarlo en el informe. 
+Por otro lado deberías tomar más muestras, porque para poder aplicar ley de los grandes números 10 no alcanza. Y deberías aplicarla porque es bueno que tú media muestral tienda a la poblacional. 
+
+Conteste tu pregunta? Sino por favor reformulala . 
+
+Saludos
+Max
