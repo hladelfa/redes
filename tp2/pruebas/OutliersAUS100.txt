@@ -1,0 +1,13 @@
+Media: 35.7912068966 Desvio Estandar: 66.6317999514 modifiedThompson: 119.830629033
+
+DRTT    outliers
+6.74206896552    No
+0.09    No
+1.33    No
+1.84    No
+183.96    Si
+16.48    No
+136.16    No
+2.8    No
+7.51    No
+1.0    No

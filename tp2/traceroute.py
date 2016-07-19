@@ -20,10 +20,10 @@ def calcularStandardDeviation(valores):
     diferencia = diferencia / float(len(valores)-1)
     return math.sqrt(diferencia)
 
-QUANTITY_ATTEMPTS = 30
+QUANTITY_ATTEMPTS = 60
 LIMITE_TTL = 40
 text_file = open("Output.txt", "w")
-text_file.write("Saltos  Ip             rtt              DRTT\n")
+text_file.write("Saltos  Ip             rtt              DRTT     Intentos\n")
 
 resp = ""
 timeout=1
@@ -43,7 +43,8 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
     rtt_sum = 0.0
     cant_exitos = 0
     while intentos <= QUANTITY_ATTEMPTS:    
-
+	print ("TTL: ", ttl)
+	print ("Intentos: ", intentos)
         rtt = int(round(time.time() * 1000))
         res = sr1(packet, timeout=timeout)
         rtt = int(round(time.time() * 1000)) - rtt
@@ -105,6 +106,8 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
         text_file.write(str(rtt_prom))
         text_file.write("         ")
         text_file.write(str(deltaRTTi))
+        text_file.write("   ")
+	text_file.write(str(cant_exitos))
         text_file.write("\n")
     else:
         #En otro caso, marcar como desconocido (*) 
