@@ -50,6 +50,10 @@ def negativeFilter(muestra_rtt):
  for drtt in muestra_rtt:
    if(drtt >= 0.0):
      muestra_rtt_copy.append(drtt)
+ media = calculaMedia(muestra_rtt_copy)
+ while(len(muestra_rtt_copy) < len(muestra_rtt)): 
+   muestra_rtt_copy.append(media);
+
  return muestra_rtt_copy
 
 QUANTITY_ATTEMPTS = 30
@@ -66,6 +70,7 @@ timeout=1
 ttl = 1
 muestra_rtt = []
 ultimo_rtt_prom = 0.0
+rtt_prom_list = []
 
 while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
     #Paquete: ICMP Echo Request, destino IP y TTL.    
@@ -127,7 +132,7 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
     if(rtt_sum > 0):
 
         rtt_prom = rtt_sum / cant_exitos
-        
+
         #deltaRTTi = abs(rtt_prom - ultimo_rtt_prom)
 	deltaRTTi = rtt_prom - ultimo_rtt_prom
 	#if( deltaRTTi < 0.0):
@@ -156,7 +161,7 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
 
 text_file.close()
 
-print ("-------RTTS-----------")
+print ("-------DRTTS-----------")
 muestra_rtt.pop(0)
 muestra_rtt = negativeFilter(muestra_rtt)
 muestra_rtt.sort()
