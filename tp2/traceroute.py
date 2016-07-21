@@ -20,15 +20,41 @@ def calcularStandardDeviation(valores):
     diferencia = diferencia / float(len(valores)-1)
     return math.sqrt(diferencia)
 
-QUANTITY_ATTEMPTS = 60
+def calcularOutliers(muestra_rtt, outliers):
+    media = calculaMedia(muestra_rtt)
+    print ("-------Media-----------")
+    print (media)
+    print ("-------Desvio Estandar-----------")
+    dstandar = calcularStandardDeviation(muestra_rtt)
+    print (dstandar)
+    print ("-------absolute value of the deviation-----------")
+    adeviation = abs(max(muestra_rtt) - media)
+    print (adeviation)
+    print ("-------modifiedThompson-----------")
+    thompsonValue = thompsonValues[len(muestra_rtt)]
+    modifiedThompson = thompsonValue * dstandar
+    print (modifiedThompson)
+
+    if adeviation > modifiedThompson:
+        msg = "DRTT: "+str(max(muestra_rtt))+" es el enlace transatlantico"
+        print msg 
+        outliers.append(str(max(muestra_rtt)))
+        muestra_rtt.pop()
+        calcularOutliers(muestra_rtt, outliers)
+    
+
+
+QUANTITY_ATTEMPTS = 30
 LIMITE_TTL = 40
-text_file = open("Output.txt", "w")
+
+ip = sys.argv[1]
+file_prefix = sys.argv[2]
+
+text_file = open(file_prefix+"_output.txt", "w")
 text_file.write("Saltos  Ip             rtt              DRTT     Intentos\n")
 
 resp = ""
 timeout=1
-#ip = '150.244.214.237'
-ip = sys.argv[1]
 ttl = 1
 muestra_rtt = []
 ultimo_rtt_prom = 0.0
@@ -119,51 +145,28 @@ text_file.close()
 
 print ("-------RTTS-----------")
 muestra_rtt.pop(0)
-#muestra_rtt.sort()
+muestra_rtt.sort()
 print (muestra_rtt)
-media = calculaMedia(muestra_rtt)
-print ("-------Media-----------")
-print (media)
-print ("-------Desvio Estandar-----------")
-dstandar = calcularStandardDeviation(muestra_rtt)
-print (dstandar)
-print ("-------absolute value of the deviation-----------")
-adeviation = abs(max(muestra_rtt) - media)
-print (adeviation)
-print ("-------modifiedThompson-----------")
-thompsonValue = thompsonValues[len(muestra_rtt)]
-modifiedThompson = thompsonValue * dstandar
-print (modifiedThompson)
 
-if adeviation > modifiedThompson:
-        msg = "DRTT: "+str(max(muestra_rtt))+" es el enlace transatlantico"
-        print msg 
+outliers = []
+calcularOutliers(muestra_rtt, outliers)
 
-outliers_file = open("Outliers.txt", "w")
-outliers_file.write("Media: ")
-outliers_file.write(str(media))
-outliers_file.write(" Desvio Estandar: ")
-outliers_file.write(str(dstandar))
-outliers_file.write(" modifiedThompson: ")
-outliers_file.write(str(modifiedThompson))
-outliers_file.write("\n")
-outliers_file.write("\n")
+outliers_file = open(file_prefix+"_outliers.txt", "w")
+#outliers_file.write("Media: ")
+#outliers_file.write(str(media))
+#outliers_file.write(" Desvio Estandar: ")
+#outliers_file.write(str(dstandar))
+#outliers_file.write(" modifiedThompson: ")
+#outliers_file.write(str(modifiedThompson))
+#outliers_file.write("\n")
+#outliers_file.write("\n")
 
 
 outliers_file.write("DRTT    outliers\n")
 
-for dato in muestra_rtt:
-    
-    outliers_file.write(str(dato))
-    outliers_file.write("    ")
-    adeviation = abs(dato - media)
-    if adeviation > modifiedThompson:
-        outliers_file.write("Si")
-    else:
-        outliers_file.write("No")
-    
+for dato in outliers:
+    outliers_file.write(dato)
     outliers_file.write("\n")
-    
     
 outliers_file.close()
 
