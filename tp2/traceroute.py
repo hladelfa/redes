@@ -40,9 +40,17 @@ def calcularOutliers(muestra_rtt, outliers):
         print msg 
         outliers.append(str(max(muestra_rtt)))
         muestra_rtt.pop()
+        print (muestra_rtt)
         calcularOutliers(muestra_rtt, outliers)
     
 
+def negativeFilter(muestra_rtt):
+ muestra_rtt_copy = []
+ index = 0
+ for drtt in muestra_rtt:
+   if(drtt >= 0.0):
+     muestra_rtt_copy.append(drtt)
+ return muestra_rtt_copy
 
 QUANTITY_ATTEMPTS = 30
 LIMITE_TTL = 40
@@ -120,7 +128,12 @@ while(resp != 0 and LIMITE_TTL > ttl): #"Echo Reply"
 
         rtt_prom = rtt_sum / cant_exitos
         
-        deltaRTTi = abs(rtt_prom - ultimo_rtt_prom)
+        #deltaRTTi = abs(rtt_prom - ultimo_rtt_prom)
+	deltaRTTi = rtt_prom - ultimo_rtt_prom
+	#if( deltaRTTi < 0.0):
+	#    deltaRTTi = 0.0;
+
+
         ultimo_rtt_prom = rtt_prom
 
         muestra_rtt.append(deltaRTTi)
@@ -145,6 +158,7 @@ text_file.close()
 
 print ("-------RTTS-----------")
 muestra_rtt.pop(0)
+muestra_rtt = negativeFilter(muestra_rtt)
 muestra_rtt.sort()
 print (muestra_rtt)
 
