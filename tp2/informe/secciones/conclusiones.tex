@@ -1,0 +1,14 @@
+\section{Conclusiones}
+Para los análisis utilizamos herramientas de geolocalización de direcciones IP. Uno de los principales inconvenientes que tuvimos al usar diferentes herramientas de este tipo fue que no siempre coinciden en la respuesta. Pero, gracias a la interpretación de los RTT en cada salto, los nombres de los hosts y la ubicación de los hosts vecinos, pudimos inferir cuál sería su verdadera ubicación. 
+\\\\
+Fue muy frecuente, en las pruebas realizadas, que el primer gran salto se de a un nodo ubicado en Estados Unidos, como se vio en los resultados para los casos de las Universidades de Australia y China.
+\\\\
+La cantidad de saltos observados en las pruebas realizadas, siempre fue inferior a 30 para aquellas pruebas que terminaron correctamente. Cuando el número fue mayor a 30, no se llegó a recibir respuesta del destino.
+\\\\
+También, nos encontramos con nodos intermedios de los que no tuvimos respuesta. Esto como se explicó anteriormente suele darse por la anomalia de traceroute llamada \emph{Missing Hops}.
+\\\\
+Otra cosa que pudimos observar es que para algunos saltos se mostraban RTTs menores que RTTs de saltos anteriores que se explica por la anomalía llamada \emph{False Round-Trip Times}. 
+\\\\
+Otra característica que pudimos identificar fue que en varios casos existen hosts con una dirección IP asignada correspondiente a al rango de direcciones de otro continente. En este caso las herramientas de localización geográfica ubicaban a estos hosts en el continente correspondiente según su IP en lugar de proveer su ubicación real.
+\\\\
+Este trabajo nos permitió conocer los detalles sobre la implementación de la herramienta \texttt{traceroute} y el funcionamiento del protocolo ICMP. También pudimos realizar análisis sobre los resultados obtenidos al utilizar nuestra propia implementación de traceroute en diferentes experimentos. Con esto pudimos verificar que los resultados obtenidos no siempre fueron exactos, sino que requirieron de cierto análisis para su interpretación.

@@ -2,31 +2,47 @@
 
 Basándonos en la técnica de estimación propuesta por John M. Cimbala para encontrar los outliers de una muestra, agregamos a nuestro programa los cálculos necesarios para inferir saltos intercontinentales en las rutas tomadas por los paquetes hacia un host destino.
 \\\\
-Los pasos que tomamos para realizar estos cálculos fueron:
+Los pasos que seguiremos para realizar estos cálculos fueron:
 
 \begin{enumerate}
 \item 
-Para cada TTL de los \emph{ICMP Echo Request} enviados, medimos el RTT de cada salto entre cada par de nodos. Utilizamos al conjunto de los $RTT_i$ como los valores de nuestra muestra, con $i=1,…,n$. Donde $n$ es la cantidad de muestras obtenidas.
-Por cada $RTT_i$ calculamos el valor absoluto del desvío como:
+Para cada TTL de los \emph{ICMP Echo Request} enviados, a partir del RTT medido, calculamos el dRTT (delta RTT) de cada salto entre cada par de nodos como:
 \[
-\delta_i = |RTT_i - \overline{RTT}|
+\\dRTT_i =RTT_i - RTT_{i-1}
 \]
 
-Donde $\overline{RTT}$ es el valor de la media de la muestra calculado como el promedio de los $RTT_i$ medidos.
+Donde $RTT_i$ es el valor de RTT en cada paso. 
 
 \item
-Tomamos como referencia la tabla de valores calculados para la fórmula de \emph{Thompson modificada} del artículo de Cimbala para obtener el valor  $\tau$ correspondiente a las $n$ muestras. Con este valor obtuvimos:
+Debido a que \texttt{traceroute} no es una herramienta del todo precisa, los resultados pueden presentar ciertas anomalías que se manifiestan con resultados extraños o erróneos. Uno de estos comportamientos podría darse cuando, para un valor de TTL el paquete \emph{ICMP Echo Reply} toma un camino más largo que el paquete \emph{ICMP Echo Reply} correspondiente al TTL siguiente. En este caso, el RTT del primero terminará siendo mayor que el siguiente, logrando que el dRTT de este último tome un valor negativo. Esto nunca podría ocurrir en la realidad, ya que el tiempo que tarda un paquete en llegar de un nodo a otro más lejano siempre debería ser positivo.
+\\
+Para salvar este comportamiento indeseado y evitar que la búsqueda de outliers se vea afectada, decidimos reemplazar a todos los dRTT negativos por el valor del promedio de todos los dRTT positivos obtenidos. De esta forma buscamos que estos dRTT incorrectos se acerquen más a valores reales. 
+
+\item
+Utilizamos al conjunto de los $dRTT_i$ como los valores de nuestra muestra, con $i=1,…,n$. Donde $n$ es la cantidad de muestras obtenidas.
+Ordenamos la muestra de forma creciente.
+
+\item
+Por cada $dRTT_i$ calculamos el valor absoluto del desvío como:
+\[
+\delta_i = |dRTT_i - \overline{dRTT}|
+\]
+
+Donde $\overline{dRTT}$ es el valor de la media de la muestra calculado como el promedio de los $dRTT_i$ medidos.
+
+\item
+Tomamos como referencia la tabla de valores calculados para la fórmula de \emph{Thompson modificada} del artículo de Cimbala para obtener el valor $\tau$ correspondiente a las $n$ muestras. Con este valor obtuvimos:
 \[
 \tau S = \tau * S
 \]
 
 Donde S es el desvío estándar calculado como:
 \[
-S=\sqrt{\frac{\sum_{i=1}^{n} (RTT_i - \overline{RTT})^2}{n-1}}
+S=\sqrt{\frac{\sum_{i=1}^{n} (dRTT_i - \overline{dRTT})^2}{n-1}}
 \]
 
 \item
-Luego verificamos, si $\delta_i > \tau S$, entonces asumimos que el salto con $RTT_i$ es un enlace intercontinental.
+Luego, tomamos el último valor (el máximo) de la muestra ordenada y verificamos, si se cumple que $\delta_i > \tau S$, entonces se asume que el salto con $dRTT_i$ es un enlace intercontinental. Removemos este $dRTT_i$ de la muestra y volvemos a intentar con el nuevo último valor de la muestra hasta que no se cumpla la desigualdad mencionada anteriormente, donde habremos terminado de encontrar los outliers.
 \end{enumerate}
 
 De esta forma, mediante una técnica estadística y las herramientas que brinda el protocolo \emph{ICMP}, logramos inferir cuáles son los enlaces intercontinentales en las rutas tomadas por los paquetes.
